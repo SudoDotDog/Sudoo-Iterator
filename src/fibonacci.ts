@@ -4,7 +4,9 @@
  * @description Fibonacci
  */
 
-export class FibonacciIterator {
+import { IIterator } from "./declare";
+
+export class FibonacciIterator implements IIterator<number> {
 
     public static create(): FibonacciIterator {
 
@@ -18,6 +20,11 @@ export class FibonacciIterator {
 
         this._previous = 0;
         this._current = 1;
+    }
+
+    public peek(): number {
+
+        return this._previous;
     }
 
     public skipZero(): this {
@@ -36,6 +43,11 @@ export class FibonacciIterator {
             this._previous = 1;
         }
         return this;
+    }
+
+    public hasNext(): boolean {
+
+        return true;
     }
 
     public next(): number {
