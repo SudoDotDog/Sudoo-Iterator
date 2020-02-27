@@ -11,27 +11,45 @@ export class FibonacciIterator {
         return new FibonacciIterator();
     }
 
-    private _current: number;
     private _previous: number;
+    private _current: number;
 
     private constructor() {
 
-        this._current = 1;
         this._previous = 0;
+        this._current = 1;
+    }
+
+    public skipZero(): this {
+
+        if (this._current === 1 && this._previous === 0) {
+            this._current = 0;
+            this._previous = 1;
+        }
+        return this;
+    }
+
+    public skipStatic(): this {
+
+        if (this._current === 1 && this._previous === 0) {
+            this._current = 1;
+            this._previous = 1;
+        }
+        return this;
     }
 
     public next(): number {
 
-        this._previous = this._current;
-        const next: number = this._current;
-        this._current = this._current + this._previous;
-        return next;
+        const temp: number = this._previous;
+        this._previous = this._current + this._previous;
+        this._current = temp;
+        return temp;
     }
 
     public reset(): this {
 
-        this._current = 1;
         this._previous = 0;
+        this._current = 1;
         return this;
     }
 }
