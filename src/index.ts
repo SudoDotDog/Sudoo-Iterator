@@ -5,5 +5,5 @@
  */
 
 export * from "./declare";
-export * from "./fibonacci";
+export * from "./iterator/fibonacci";
 

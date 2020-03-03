@@ -4,7 +4,7 @@
  * @description Fibonacci
  */
 
-import { IIterator } from "./declare";
+import { IIterator } from "../declare";
 
 export class FibonacciIterator implements IIterator<number> {
 
