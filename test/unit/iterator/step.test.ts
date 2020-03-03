@@ -23,6 +23,13 @@ describe('Given {StepIterator} class', (): void => {
         expect(query).to.be.deep.equal([0, 1, 2]);
     });
 
+    it('should be able to get length', (): void => {
+
+        const iterator: StepIterator = StepIterator.create();
+
+        expect(iterator).to.be.lengthOf(Infinity);
+    });
+
     it('should be able to increase count', (): void => {
 
         const iterator: StepIterator = StepIterator.create();

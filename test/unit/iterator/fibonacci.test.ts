@@ -59,4 +59,24 @@ describe('Given {FibonacciIterator} class', (): void => {
 
         expect(query).to.be.deep.equal([1, 2, 3, 5, 8]);
     });
+
+    it('should be able to get length', (): void => {
+
+        const iterator: FibonacciIterator = FibonacciIterator.create();
+
+        expect(iterator).to.be.lengthOf(Infinity);
+    });
+
+    it('should be able to increase count', (): void => {
+
+        const iterator: FibonacciIterator = FibonacciIterator.create();
+
+        const query: number[] = [
+            iterator.next(),
+            iterator.next(),
+        ];
+
+        expect(query).to.be.deep.equal([0, 1]);
+        expect(iterator.count).to.be.equal(2);
+    });
 });
