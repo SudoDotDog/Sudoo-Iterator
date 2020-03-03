@@ -37,6 +37,14 @@ export class StepIterator implements IIterator<number> {
         return Infinity;
     }
 
+    public skipZero(): this {
+
+        if (this._next === 0) {
+            this._next = this._next + this._step;
+        }
+        return this;
+    }
+
     public peek(): number {
 
         return this._next;
