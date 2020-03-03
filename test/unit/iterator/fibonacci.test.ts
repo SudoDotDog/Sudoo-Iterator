@@ -6,7 +6,7 @@
  */
 
 import { expect } from "chai";
-import { FibonacciIterator } from "../../src";
+import { FibonacciIterator } from "../../../src";
 
 describe('Given {FibonacciIterator} class', (): void => {
 

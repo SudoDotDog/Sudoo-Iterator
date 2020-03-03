@@ -6,6 +6,9 @@
 
 export interface IIterator<T> {
 
+    count: number;
+    length: number;
+
     peek(): T;
     hasNext(): boolean;
     next(): T;

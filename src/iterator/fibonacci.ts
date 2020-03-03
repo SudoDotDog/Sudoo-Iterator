@@ -13,13 +13,24 @@ export class FibonacciIterator implements IIterator<number> {
         return new FibonacciIterator();
     }
 
+    private _count: number;
+
     private _previous: number;
     private _current: number;
 
     private constructor() {
 
+        this._count = 0;
+
         this._previous = 0;
         this._current = 1;
+    }
+
+    public get count(): number {
+        return this._count;
+    }
+    public get length(): number {
+        return Infinity;
     }
 
     public peek(): number {
@@ -52,6 +63,8 @@ export class FibonacciIterator implements IIterator<number> {
 
     public next(): number {
 
+        this._count++;
+
         const temp: number = this._previous;
         this._previous = this._current + this._previous;
         this._current = temp;
@@ -59,6 +72,8 @@ export class FibonacciIterator implements IIterator<number> {
     }
 
     public reset(): this {
+
+        this._count = 0;
 
         this._previous = 0;
         this._current = 1;

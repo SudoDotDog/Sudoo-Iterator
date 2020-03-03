@@ -8,10 +8,12 @@ import { IIterator } from "../declare";
 
 export class StepIterator implements IIterator<number> {
 
-    public static create(step: number, startFrom: number = 0): StepIterator {
+    public static create(step: number = 1, startFrom: number = 0): StepIterator {
 
         return new StepIterator(step, startFrom);
     }
+
+    private _count: number;
 
     private readonly _startFrom: number;
     private readonly _step: number;
@@ -20,10 +22,19 @@ export class StepIterator implements IIterator<number> {
 
     private constructor(step: number, startFrom: number) {
 
+        this._count = 0;
+
         this._step = step;
         this._next = startFrom;
 
         this._startFrom = startFrom;
+    }
+
+    public get count(): number {
+        return this._count;
+    }
+    public get length(): number {
+        return Infinity;
     }
 
     public peek(): number {
@@ -38,12 +49,16 @@ export class StepIterator implements IIterator<number> {
 
     public next(): number {
 
+        this._count++;
+
         const temp: number = this._next;
         this._next = this._next + this._step;
         return temp;
     }
 
     public reset(): this {
+
+        this._count = 0;
 
         this._next = this._startFrom;
         return this;
