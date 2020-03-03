@@ -4,16 +4,15 @@
  * @description Step
  */
 
+import { BaseIterator } from "../base";
 import { IIterator } from "../declare";
 
-export class StepIterator implements IIterator<number> {
+export class StepIterator extends BaseIterator<number> implements IIterator<number> {
 
     public static create(step: number = 1, startFrom: number = 0): StepIterator {
 
         return new StepIterator(step, startFrom);
     }
-
-    private _count: number;
 
     private readonly _startFrom: number;
     private readonly _step: number;
@@ -22,7 +21,7 @@ export class StepIterator implements IIterator<number> {
 
     private constructor(step: number, startFrom: number) {
 
-        this._count = 0;
+        super();
 
         this._step = step;
         this._next = startFrom;
@@ -30,9 +29,6 @@ export class StepIterator implements IIterator<number> {
         this._startFrom = startFrom;
     }
 
-    public get count(): number {
-        return this._count;
-    }
     public get length(): number {
         return Infinity;
     }
@@ -57,7 +53,7 @@ export class StepIterator implements IIterator<number> {
 
     public next(): number {
 
-        this._count++;
+        super.next();
 
         const temp: number = this._next;
         this._next = this._next + this._step;
@@ -66,7 +62,7 @@ export class StepIterator implements IIterator<number> {
 
     public reset(): this {
 
-        this._count = 0;
+        super.reset();
 
         this._next = this._startFrom;
         return this;

@@ -10,6 +10,11 @@ export class BaseIterator<T> implements IIterator<T> {
 
     protected _count: number;
 
+    protected constructor() {
+
+        this._count = 0;
+    }
+
     public get count(): number {
         return this._count;
     }
@@ -29,6 +34,7 @@ export class BaseIterator<T> implements IIterator<T> {
 
     public next(): T {
 
+        this._count++;
         return null as any as T;
     }
 
