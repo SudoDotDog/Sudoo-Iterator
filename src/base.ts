@@ -24,7 +24,7 @@ export class BaseIterator<T> implements IIterator<T> {
 
     public peek(): T {
 
-        return null as any as T;
+        return undefined as any as T;
     }
 
     public hasNext(): boolean {
@@ -35,12 +35,17 @@ export class BaseIterator<T> implements IIterator<T> {
     public next(): T {
 
         this._count++;
-        return null as any as T;
+        return undefined as any as T;
     }
 
-    public reset(): this {
+    public reset(): IIterator<T> {
 
         this._count = 0;
-        return this;
+        return undefined as any;
+    }
+
+    public [Symbol.iterator](): Iterator<T> {
+
+        throw new Error("Method not implemented.");
     }
 }

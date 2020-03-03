@@ -4,7 +4,7 @@
  * @description Declare
  */
 
-export interface IIterator<T> {
+export interface IIterator<T> extends Iterable<T> {
 
     count: number;
     length: number;

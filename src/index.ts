@@ -6,5 +6,7 @@
 
 export * from "./base";
 export * from "./declare";
+export * from "./iterator/custom";
 export * from "./iterator/fibonacci";
+export * from "./iterator/step";
 
