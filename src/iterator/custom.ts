@@ -31,7 +31,7 @@ export class CustomIterator<T> extends BaseIterator<T> implements IIterator<T> {
         return this._elements.length;
     }
     public get nextLeft(): number {
-        return this._elements.length - this._nextIndex + 1;
+        return this._elements.length - this._nextIndex;
     }
 
     public peek(): T {
@@ -41,7 +41,7 @@ export class CustomIterator<T> extends BaseIterator<T> implements IIterator<T> {
 
     public hasNext(): boolean {
 
-        return true;
+        return this._elements.length > this._nextIndex;
     }
 
     public next(): T {
