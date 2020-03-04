@@ -6,7 +6,7 @@
  */
 
 import { expect } from "chai";
-import { StepIterator } from "../../../src/iterator/step";
+import { StepIterator } from "../../../src";
 
 describe('Given {StepIterator} class', (): void => {
 
