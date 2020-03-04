@@ -8,6 +8,11 @@ import { IIterator } from "./declare";
 
 export class BaseIterator<T> implements IIterator<T> {
 
+    protected static __createForDebug() {
+
+        return new BaseIterator();
+    }
+
     protected _count: number;
 
     protected constructor() {
