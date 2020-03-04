@@ -28,6 +28,9 @@ export class FibonacciIterator extends BaseIterator<number> implements IIterator
     public get length(): number {
         return Infinity;
     }
+    public get nextLeft(): number {
+        return Infinity;
+    }
 
     public peek(): number {
 

@@ -30,6 +30,9 @@ export class CustomIterator<T> extends BaseIterator<T> implements IIterator<T> {
     public get length(): number {
         return this._elements.length;
     }
+    public get nextLeft(): number {
+        return this._elements.length - this._nextIndex + 1;
+    }
 
     public peek(): T {
 

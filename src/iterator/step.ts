@@ -32,6 +32,9 @@ export class StepIterator extends BaseIterator<number> implements IIterator<numb
     public get length(): number {
         return Infinity;
     }
+    public get nextLeft(): number {
+        return Infinity;
+    }
 
     public skipZero(): this {
 
