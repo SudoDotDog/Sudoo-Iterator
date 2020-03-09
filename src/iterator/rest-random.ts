@@ -86,4 +86,26 @@ export class RestRandomIterator extends BaseIterator<number> implements IIterato
         this._restSize = this._initialSize;
         return this;
     }
+
+    public *[Symbol.iterator](): Iterator<number> {
+
+        while (this.hasNext()) {
+            if (this._restSize === 1) {
+
+                yield this._restAmount;
+
+                super.next();
+                this._restSize--;
+            } else {
+
+                const maximum: number = this._restAmount / this._restSize * 2;
+                const result: number = Math.random() * maximum;
+                yield result;
+
+                super.next();
+                this._restSize--;
+                this._restAmount = this._restAmount - result;
+            }
+        }
+    }
 }

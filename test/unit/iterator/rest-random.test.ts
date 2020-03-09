@@ -76,4 +76,62 @@ describe('Given {RestRandomIterator} class', (): void => {
         expect(query[3]).to.be.equal(0);
         expect(sum).to.be.equal(10);
     });
+
+    it('should be able to loop with iterators', (): void => {
+
+        const iterator: RestRandomIterator = RestRandomIterator.create(5, 10);
+
+        const query: number[] = [];
+        let count = 0;
+        for (const next of iterator) {
+
+            if (count >= 3) {
+                break;
+            }
+
+            count++;
+            query.push(next);
+        }
+
+        expect(count).to.be.equal(3);
+        expect(query).to.be.lengthOf(3);
+        expect(iterator.count).to.be.equal(3);
+        expect(iterator.nextLeft).to.be.equal(2);
+
+        const rest1: number = iterator.next();
+        const rest2: number = iterator.next();
+
+        const sum: number = query[0] + query[1] + query[2] + rest1 + rest2;
+
+        expect(sum).to.be.equal(10);
+        expect(iterator.count).to.be.equal(5);
+        expect(iterator.nextLeft).to.be.equal(0);
+        // tslint:disable-next-line: no-unused-expression
+        expect(iterator.hasNext()).to.be.false;
+
+        const restEmpty: number = iterator.next();
+
+        expect(iterator.count).to.be.equal(6);
+        expect(restEmpty).to.be.equal(0);
+    });
+
+    it('should be able to loop with iterators - infinity', (): void => {
+
+        const iterator: RestRandomIterator = RestRandomIterator.create(3, 10);
+
+        const query: number[] = [];
+        for (const next of iterator) {
+
+            query.push(next);
+        }
+
+        const sum: number = query[0] + query[1] + query[2];
+        expect(sum).to.be.equal(10);
+
+        expect(query).to.be.lengthOf(3);
+        expect(iterator.count).to.be.equal(3);
+        expect(iterator.nextLeft).to.be.equal(0);
+        // tslint:disable-next-line: no-unused-expression
+        expect(iterator.hasNext()).to.be.false;
+    });
 });
