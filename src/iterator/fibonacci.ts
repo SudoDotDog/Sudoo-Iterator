@@ -83,4 +83,12 @@ export class FibonacciIterator extends BaseIterator<number> implements IIterator
         this._current = 1;
         return this;
     }
+
+    public *[Symbol.iterator](): Iterator<number> {
+
+        while (this.hasNext()) {
+            yield this.peek();
+            this.next();
+        }
+    }
 }
