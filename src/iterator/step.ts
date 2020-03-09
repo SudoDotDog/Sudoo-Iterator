@@ -75,4 +75,11 @@ export class StepIterator extends BaseIterator<number> implements IIterator<numb
         this._next = this._startFrom;
         return this;
     }
+
+    public *[Symbol.iterator](): Iterator<number> {
+
+        while (this.hasNext()) {
+            yield this.next();
+        }
+    }
 }

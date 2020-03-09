@@ -95,4 +95,30 @@ describe('Given {StepIterator} class', (): void => {
         expect(query).to.be.deep.equal([0, 1, 2, 3, 4]);
         expect(iterator.count).to.be.equal(5);
     });
+
+    it('should be able to loop with iterators', (): void => {
+
+        const iterator: StepIterator = StepIterator.create();
+
+        const query: number[] = [];
+        let count = 0;
+        for (const next of iterator) {
+
+            if (count >= 5) {
+                break;
+            }
+
+            count++;
+            query.push(next);
+        }
+
+        console.log(iterator.peek());
+
+        console.log(query);
+        expect(query).to.be.deep.equal([0, 1, 2, 3, 4]);
+        console.log(count);
+        expect(count).to.be.equal(5);
+        console.log(iterator.count);
+        expect(iterator.count).to.be.equal(5);
+    });
 });
