@@ -44,6 +44,21 @@ describe('Given {StepIterator} class', (): void => {
         expect(iterator.count).to.be.equal(3);
     });
 
+    it('should be able to increase count with skip zero', (): void => {
+
+        const iterator: StepIterator = StepIterator.create();
+        iterator.skipZero();
+
+        const query: number[] = [
+            iterator.next(),
+            iterator.next(),
+            iterator.next(),
+        ];
+
+        expect(query).to.be.deep.equal([1, 2, 3]);
+        expect(iterator.count).to.be.equal(3);
+    });
+
     it('should be able to reset iterator', (): void => {
 
         const iterator: StepIterator = StepIterator.create();
@@ -69,5 +84,15 @@ describe('Given {StepIterator} class', (): void => {
 
         expect(query).to.be.deep.equal([0, 1, 2, 0, 1, 2]);
         expect(iterator.count).to.be.equal(3);
+    });
+
+    it('should be able to batch fetch elements', (): void => {
+
+        const iterator: StepIterator = StepIterator.create();
+
+        const query: number[] = iterator.batch(5);
+
+        expect(query).to.be.deep.equal([0, 1, 2, 3, 4]);
+        expect(iterator.count).to.be.equal(5);
     });
 });

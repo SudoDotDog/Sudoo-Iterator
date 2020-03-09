@@ -53,13 +53,16 @@ export class CustomIterator<T> extends BaseIterator<T> implements IIterator<T> {
         return temp;
     }
 
-    public batch(count: number): T[] {
+    public batch(count: number, fillRestWithUndefined?: boolean): T[] {
 
         const result: T[] = [];
         for (let i = 0; i < count; i++) {
 
             if (this.hasNext()) {
                 result.push(this.next());
+            } else if (fillRestWithUndefined) {
+                this._count++;
+                result.push(undefined as any);
             }
         }
         return result;

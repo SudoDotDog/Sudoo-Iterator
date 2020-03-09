@@ -64,5 +64,28 @@ describe('Given {CustomIterator} class', (): void => {
         ];
 
         expect(query).to.be.deep.equal([...elements, undefined]);
+        expect(iterator.count).to.be.equal(3);
+    });
+
+    it('should be able to batch fetch elements', (): void => {
+
+        const elements: number[] = [chance.natural(), chance.natural()];
+        const iterator: CustomIterator<number> = CustomIterator.create(elements);
+
+        const query: number[] = iterator.batch(3);
+
+        expect(query).to.be.deep.equal([...elements]);
+        expect(iterator.count).to.be.equal(2);
+    });
+
+    it('should be able to batch fetch elements - fill empty with undefined', (): void => {
+
+        const elements: number[] = [chance.natural(), chance.natural()];
+        const iterator: CustomIterator<number> = CustomIterator.create(elements);
+
+        const query: number[] = iterator.batch(3, true);
+
+        expect(query).to.be.deep.equal([...elements, undefined]);
+        expect(iterator.count).to.be.equal(3);
     });
 });

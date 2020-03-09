@@ -79,4 +79,14 @@ describe('Given {FibonacciIterator} class', (): void => {
         expect(query).to.be.deep.equal([0, 1]);
         expect(iterator.count).to.be.equal(2);
     });
+
+    it('should be able to batch fetch elements', (): void => {
+
+        const iterator: FibonacciIterator = FibonacciIterator.create();
+
+        const query: number[] = iterator.batch(5);
+
+        expect(query).to.be.deep.equal([0, 1, 1, 2, 3]);
+        expect(iterator.count).to.be.equal(5);
+    });
 });
