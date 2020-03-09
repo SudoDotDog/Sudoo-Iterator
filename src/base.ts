@@ -46,6 +46,11 @@ export class BaseIterator<T> implements IIterator<T> {
         return undefined as any as T;
     }
 
+    public batch(count: number): T[] {
+
+        return new Array(count).fill(undefined);
+    }
+
     public reset(): IIterator<T> {
 
         this._count = 0;
@@ -55,10 +60,5 @@ export class BaseIterator<T> implements IIterator<T> {
     public [Symbol.iterator](): Iterator<T> {
 
         throw new Error("Method not implemented.");
-    }
-
-    public batch(count: number): T[] {
-
-        return new Array(count).fill(undefined);
     }
 }

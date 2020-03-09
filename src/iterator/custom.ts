@@ -53,6 +53,18 @@ export class CustomIterator<T> extends BaseIterator<T> implements IIterator<T> {
         return temp;
     }
 
+    public batch(count: number): T[] {
+
+        const result: T[] = [];
+        for (let i = 0; i < count; i++) {
+
+            if (this.hasNext()) {
+                result.push(this.next());
+            }
+        }
+        return result;
+    }
+
     public reset(): this {
 
         super.reset();

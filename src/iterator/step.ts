@@ -63,6 +63,11 @@ export class StepIterator extends BaseIterator<number> implements IIterator<numb
         return temp;
     }
 
+    public batch(count: number): number[] {
+
+        return super.batch(count).map(() => this.next());
+    }
+
     public reset(): this {
 
         super.reset();

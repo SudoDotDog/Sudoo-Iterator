@@ -13,7 +13,6 @@ export interface IIterator<T> extends Iterable<T> {
     peek(): T;
     hasNext(): boolean;
     next(): T;
-    reset(): IIterator<T>;
-
     batch(count: number): T[];
+    reset(): IIterator<T>;
 }
