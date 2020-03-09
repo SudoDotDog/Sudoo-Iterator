@@ -75,4 +75,12 @@ export class CustomIterator<T> extends BaseIterator<T> implements IIterator<T> {
         this._nextIndex = 0;
         return this;
     }
+
+    public *[Symbol.iterator](): Iterator<T> {
+
+        while (this.hasNext()) {
+            yield this.peek();
+            this.next();
+        }
+    }
 }
