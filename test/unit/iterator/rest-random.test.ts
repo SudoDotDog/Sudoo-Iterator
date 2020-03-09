@@ -57,6 +57,39 @@ describe('Given {RestRandomIterator} class', (): void => {
         expect(query).to.be.lengthOf(3);
     });
 
+    it('should be able to reset count', (): void => {
+
+        const iterator: RestRandomIterator = RestRandomIterator.create(3, 10);
+
+        iterator.next();
+        iterator.next();
+        iterator.next();
+
+        expect(iterator.count).to.be.equal(3);
+
+        iterator.reset();
+
+        iterator.next();
+        iterator.next();
+        iterator.next();
+
+        expect(iterator).to.be.lengthOf(3);
+        expect(iterator.nextLeft).to.be.equal(0);
+        expect(iterator.count).to.be.equal(3);
+    });
+
+    it('should be able to get by batches', (): void => {
+
+        const iterator: RestRandomIterator = RestRandomIterator.create(3, 10);
+
+        const query: number[] = iterator.batch(3);
+
+        expect(iterator).to.be.lengthOf(3);
+        expect(iterator.nextLeft).to.be.equal(0);
+        expect(iterator.count).to.be.equal(3);
+        expect(query).to.be.lengthOf(3);
+    });
+
     it('should be able to overflow to 0', (): void => {
 
         const iterator: RestRandomIterator = RestRandomIterator.create(3, 10);

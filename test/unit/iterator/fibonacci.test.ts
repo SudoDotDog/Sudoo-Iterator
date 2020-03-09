@@ -80,6 +80,26 @@ describe('Given {FibonacciIterator} class', (): void => {
         expect(iterator.count).to.be.equal(2);
     });
 
+    it('should be able to reset', (): void => {
+
+        const iterator: FibonacciIterator = FibonacciIterator.create();
+
+        iterator.next();
+        iterator.next();
+
+        expect(iterator.peek()).to.be.equal(1);
+        expect(iterator.count).to.be.equal(2);
+
+        iterator.reset();
+
+        iterator.next();
+        iterator.next();
+        iterator.next();
+
+        expect(iterator.peek()).to.be.equal(2);
+        expect(iterator.count).to.be.equal(3);
+    });
+
     it('should be able to batch fetch elements', (): void => {
 
         const iterator: FibonacciIterator = FibonacciIterator.create();
