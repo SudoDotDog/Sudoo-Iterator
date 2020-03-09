@@ -28,8 +28,9 @@ describe('Given {RestRandomIterator} class', (): void => {
         ];
 
         const sum: number = query[0] + query[1] + query[2];
+        expect(sum.toFixed(8)).to.be.equal((10).toFixed(8));
+
         expect(query).to.be.lengthOf(3);
-        expect(sum).to.be.equal(10);
     });
 
     it('should be able to get length', (): void => {
@@ -72,9 +73,10 @@ describe('Given {RestRandomIterator} class', (): void => {
         expect(iterator.count).to.be.equal(4);
 
         const sum: number = query[0] + query[1] + query[2] + query[3];
+        expect(sum.toFixed(8)).to.be.equal((10).toFixed(8));
+
         expect(query).to.be.lengthOf(4);
         expect(query[3]).to.be.equal(0);
-        expect(sum).to.be.equal(10);
     });
 
     it('should be able to loop with iterators', (): void => {
@@ -103,7 +105,7 @@ describe('Given {RestRandomIterator} class', (): void => {
 
         const sum: number = query[0] + query[1] + query[2] + rest1 + rest2;
 
-        expect(sum).to.be.equal(10);
+        expect(sum.toFixed(8)).to.be.equal((10).toFixed(8));
         expect(iterator.count).to.be.equal(5);
         expect(iterator.nextLeft).to.be.equal(0);
         // tslint:disable-next-line: no-unused-expression
@@ -126,7 +128,7 @@ describe('Given {RestRandomIterator} class', (): void => {
         }
 
         const sum: number = query[0] + query[1] + query[2];
-        expect(sum).to.be.equal(10);
+        expect(sum.toFixed(8)).to.be.equal((10).toFixed(8));
 
         expect(query).to.be.lengthOf(3);
         expect(iterator.count).to.be.equal(3);
