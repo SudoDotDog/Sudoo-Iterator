@@ -53,11 +53,11 @@ export class RestRandomIterator extends BaseIterator<number> implements IIterato
 
     public next(): number {
 
+        super.next();
+
         if (this._restSize <= 0) {
             return 0;
         }
-
-        super.next();
 
         if (this._restSize === 1) {
             this._restSize--;
