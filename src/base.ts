@@ -56,4 +56,9 @@ export class BaseIterator<T> implements IIterator<T> {
 
         throw new Error("Method not implemented.");
     }
+
+    public batch(count: number): T[] {
+
+        return new Array(count).fill(undefined);
+    }
 }

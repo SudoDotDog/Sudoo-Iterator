@@ -14,4 +14,6 @@ export interface IIterator<T> extends Iterable<T> {
     hasNext(): boolean;
     next(): T;
     reset(): IIterator<T>;
+
+    batch(count: number): T[];
 }
