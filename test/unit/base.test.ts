@@ -32,4 +32,20 @@ describe('Given {BaseIterator} class', (): void => {
         // tslint:disable-next-line: no-unused-expression
         expect(iterator.hasNext()).to.be.false;
     });
+
+    it('should be able to throw then call iterator', (): void => {
+
+        const iterator: BaseIterator<number> = createDebugBaseIterator();
+
+        let mapped: boolean = false;
+        const exec = (): void => {
+            for (const _ of iterator) {
+                mapped = true;
+            }
+        };
+
+        expect(exec).to.be.throw("Method not implemented.");
+        // tslint:disable-next-line: no-unused-expression
+        expect(mapped).to.be.false;
+    });
 });
