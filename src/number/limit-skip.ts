@@ -50,7 +50,7 @@ export class LimitSkipIterator extends BaseIterator<LimitSkipBatch> implements I
             index: this._batch,
 
             limit: this._limit,
-            skip: this._batch * this._limit,
+            skip: Math.min(this._batch * this._limit, this._total),
         };
         return result;
     }
@@ -69,7 +69,7 @@ export class LimitSkipIterator extends BaseIterator<LimitSkipBatch> implements I
             index: this._batch,
 
             limit: this._limit,
-            skip: this._batch * this._limit,
+            skip: Math.min(this._batch * this._limit, this._total),
         };
         this._batch = this._batch + 1;
         return result;
@@ -77,21 +77,7 @@ export class LimitSkipIterator extends BaseIterator<LimitSkipBatch> implements I
 
     public batch(count: number): LimitSkipBatch[] {
 
-        const result: LimitSkipBatch[] = [];
-        for (let i = 0; i < count; i++) {
-
-            if (this.hasNext()) {
-                result.push(this.next());
-            } else {
-                result.push({
-                    index: i,
-                    limit: this._limit,
-                    skip: this._total,
-                });
-            }
-        }
-
-        return result;
+        return super.batch(count).map(() => this.next());
     }
 
     public reset(): this {
