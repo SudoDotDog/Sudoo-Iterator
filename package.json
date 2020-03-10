@@ -1,6 +1,6 @@
 {
   "name": "@sudoo/iterator",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": ":musical_score: Iterator of stuffs",
   "directories": {
     "doc": "docs"
