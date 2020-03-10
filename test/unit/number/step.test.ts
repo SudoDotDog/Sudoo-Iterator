@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Iterator
+ * @namespace Number
  * @description Step
  * @override Unit Test
  */

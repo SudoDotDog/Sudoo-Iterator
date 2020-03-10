@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Iterator
+ * @namespace Number
  * @description Fibonacci
  * @override Unit Test
  */

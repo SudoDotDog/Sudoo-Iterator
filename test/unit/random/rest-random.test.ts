@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Iterator
+ * @namespace Random
  * @description Rest Random
  * @override Unit Test
  */

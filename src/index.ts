@@ -6,8 +6,8 @@
 
 export * from "./base";
 export * from "./declare";
-export * from "./iterator/custom";
-export * from "./iterator/fibonacci";
-export * from "./iterator/rest-random";
-export * from "./iterator/step";
+export * from "./list/custom";
+export * from "./number/fibonacci";
+export * from "./number/step";
+export * from "./random/rest-random";
 
