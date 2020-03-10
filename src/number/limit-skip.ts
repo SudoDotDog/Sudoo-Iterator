@@ -10,83 +10,99 @@ import { IIterator } from "../declare";
 export type LimitSkipBatch = {
 
     readonly index: number;
-    readonly processed: number;
-    readonly left: number;
-
     readonly limit: number;
     readonly skip: number;
 };
 
 export class LimitSkipIterator extends BaseIterator<LimitSkipBatch> implements IIterator<LimitSkipBatch> {
 
-    public static create(step: number = 1, startFrom: number = 0): LimitSkipIterator {
+    public static create(total: number, limit: number): LimitSkipIterator {
 
-        return new LimitSkipIterator(step, startFrom);
+        return new LimitSkipIterator(total, limit);
     }
 
-    private readonly _startFrom: number;
-    private readonly _step: number;
+    private readonly _total: number;
+    private readonly _limit: number;
 
-    private _next: number;
+    private _batch: number;
 
-    private constructor(step: number, startFrom: number) {
+    private constructor(total: number, limit: number) {
 
         super();
 
-        this._step = step;
-        this._next = startFrom;
+        this._total = total;
+        this._limit = limit;
 
-        this._startFrom = startFrom;
+        this._batch = 0;
     }
 
     public get length(): number {
-        return Infinity;
+        return Math.ceil(this._total / this._limit);
     }
     public get nextLeft(): number {
-        return Infinity;
+        return this.length - this._batch;
     }
 
-    public skipZero(): this {
+    public peek(): LimitSkipBatch {
 
-        if (this._next === 0) {
-            this._next = this._next + this._step;
-        }
-        return this;
-    }
+        const result: LimitSkipBatch = {
 
-    public peek(): number {
+            index: this._batch,
 
-        return this._next;
+            limit: this._limit,
+            skip: this._batch * this._limit,
+        };
+        return result;
     }
 
     public hasNext(): boolean {
 
-        return true;
+        return this.nextLeft > 0;
     }
 
-    public next(): number {
+    public next(): LimitSkipBatch {
 
         super.next();
 
-        const temp: number = this._next;
-        this._next = this._next + this._step;
-        return temp;
+        const result: LimitSkipBatch = {
+
+            index: this._batch,
+
+            limit: this._limit,
+            skip: this._batch * this._limit,
+        };
+        this._batch = this._batch + 1;
+        return result;
     }
 
-    public batch(count: number): number[] {
+    public batch(count: number): LimitSkipBatch[] {
 
-        return super.batch(count).map(() => this.next());
+        const result: LimitSkipBatch[] = [];
+        for (let i = 0; i < count; i++) {
+
+            if (this.hasNext()) {
+                result.push(this.next());
+            } else {
+                result.push({
+                    index: i,
+                    limit: this._limit,
+                    skip: this._total,
+                });
+            }
+        }
+
+        return result;
     }
 
     public reset(): this {
 
         super.reset();
 
-        this._next = this._startFrom;
+        this._batch = 0;
         return this;
     }
 
-    public *[Symbol.iterator](): Iterator<number> {
+    public *[Symbol.iterator](): Iterator<LimitSkipBatch> {
 
         while (this.hasNext()) {
             yield this.peek();
