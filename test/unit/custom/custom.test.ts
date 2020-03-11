@@ -11,7 +11,7 @@ import { CustomIterator } from "../../../src";
 
 describe('Given {CustomIterator} class', (): void => {
 
-    const chance: Chance.Chance = new Chance('iterator-custom');
+    const chance: Chance.Chance = new Chance('iterator-custom-custom');
 
     it('should be able to calculate length', (): void => {
 

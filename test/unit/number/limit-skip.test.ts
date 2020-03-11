@@ -8,7 +8,7 @@
 import { expect } from "chai";
 import { LimitSkipBatch, LimitSkipIterator } from "../../../src";
 
-describe.only('Given {LimitSkipIterator} class', (): void => {
+describe('Given {LimitSkipIterator} class', (): void => {
 
     it('should be able to construct', (): void => {
 
