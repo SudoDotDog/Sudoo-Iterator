@@ -41,4 +41,38 @@ describe('Given {InfinityFunctionalIterator} class', (): void => {
             elements[1],
         ]);
     });
+
+    it('should be able to batch fetch elements', (): void => {
+
+        const elements: number[] = [chance.natural(), chance.natural(), chance.natural(), chance.natural()];
+        const iterator: InfinityFunctionalIterator<number> = InfinityFunctionalIterator.create((index: number) => elements[index]);
+
+        const query: number[] = iterator.batch(3);
+
+        expect(query).to.be.deep.equal([elements[0], elements[1], elements[2]]);
+        expect(iterator.count).to.be.equal(3);
+    });
+
+    it('should be able to loop with iterators', (): void => {
+
+        const elements: number[] = [chance.natural(), chance.natural(), chance.natural(), chance.natural()];
+        const iterator: InfinityFunctionalIterator<number> = InfinityFunctionalIterator.create((index: number) => elements[index]);
+
+        const query: number[] = [];
+        let count = 0;
+        for (const next of iterator) {
+
+            if (count >= 3) {
+                break;
+            }
+
+            count++;
+            query.push(next);
+        }
+
+        expect(query).to.be.deep.equal([elements[0], elements[1], elements[2]]);
+        expect(count).to.be.equal(3);
+        expect(iterator.count).to.be.equal(3);
+        expect(iterator.nextLeft).to.be.equal(Infinity);
+    });
 });
