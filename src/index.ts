@@ -6,6 +6,7 @@
 
 export * from "./base";
 export * from "./custom/custom";
+export * from "./custom/infinity-functional";
 export * from "./declare";
 export * from "./number/fibonacci";
 export * from "./number/limit-skip";

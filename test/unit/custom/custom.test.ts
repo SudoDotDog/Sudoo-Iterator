@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace List
+ * @namespace Custom
  * @description Custom
  * @override Unit Test
  */
