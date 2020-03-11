@@ -5,8 +5,8 @@
  */
 
 export * from "./base";
+export * from "./custom/custom";
 export * from "./declare";
-export * from "./list/custom";
 export * from "./number/fibonacci";
 export * from "./number/limit-skip";
 export * from "./number/step";
