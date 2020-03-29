@@ -51,7 +51,7 @@ export class LoopInfinityIterator<T extends any = any> extends BaseIterator<T> i
         const temp: T = this._elements[this._nextIndex];
 
         const peekNext: number = this._nextIndex + 1;
-        if (peekNext >= this._elements.length - 1) {
+        if (peekNext >= this._elements.length) {
             this._nextIndex = 0;
         } else {
             this._nextIndex = peekNext;
