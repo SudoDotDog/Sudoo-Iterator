@@ -7,7 +7,7 @@
 import { BaseIterator } from "../base";
 import { IIterator } from "../declare";
 
-export class LoopInfinityIterator<T> extends BaseIterator<T> implements IIterator<T> {
+export class LoopInfinityIterator<T extends any = any> extends BaseIterator<T> implements IIterator<T> {
 
     public static create<T extends any>(elements: T[]): LoopInfinityIterator<T> {
 

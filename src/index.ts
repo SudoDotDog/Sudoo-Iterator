@@ -8,6 +8,7 @@ export * from "./base";
 export * from "./custom/custom";
 export * from "./custom/infinity-functional";
 export * from "./declare";
+export * from "./infinity/loop";
 export * from "./number/fibonacci";
 export * from "./number/limit-skip";
 export * from "./number/step";
