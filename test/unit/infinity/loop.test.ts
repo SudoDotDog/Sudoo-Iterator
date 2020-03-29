@@ -23,9 +23,9 @@ describe('Given {LoopInfinityIterator} class', (): void => {
     it('should be able to get elements', (): void => {
 
         const elements: number[] = [
-            0,
-            1,
-            2,
+            chance.natural(),
+            chance.natural(),
+            chance.natural(),
         ];
         const iterator: LoopInfinityIterator = LoopInfinityIterator.create(elements);
 
@@ -40,5 +40,31 @@ describe('Given {LoopInfinityIterator} class', (): void => {
             elements[1],
         ]);
         expect(iterator.peek()).to.be.equal(elements[2]);
+    });
+
+    it('should be able to get looped elements', (): void => {
+
+        const elements: number[] = [
+            chance.natural(),
+            chance.natural(),
+            chance.natural(),
+        ];
+        const iterator: LoopInfinityIterator = LoopInfinityIterator.create(elements);
+
+        expect(iterator.peek()).to.be.equal(elements[0]);
+        const query: number[] = [
+            iterator.next(),
+            iterator.next(),
+            iterator.next(),
+            iterator.next(),
+        ];
+
+        expect(query).to.be.deep.equal([
+            elements[0],
+            elements[1],
+            elements[2],
+            elements[0],
+        ]);
+        expect(iterator.peek()).to.be.equal(elements[1]);
     });
 });
