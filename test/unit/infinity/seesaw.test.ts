@@ -57,14 +57,18 @@ describe('Given {SeesawInfinityIterator} class', (): void => {
             iterator.next(),
             iterator.next(),
             iterator.next(),
+            iterator.next(),
+            iterator.next(),
         ];
 
         expect(query).to.be.deep.equal([
             elements[0],
             elements[1],
             elements[2],
+            elements[1],
             elements[0],
+            elements[1],
         ]);
-        expect(iterator.peek()).to.be.equal(elements[1]);
+        expect(iterator.peek()).to.be.equal(elements[2]);
     });
 });

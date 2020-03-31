@@ -52,8 +52,8 @@ export class SeesawInfinityIterator<T extends any = any> extends BaseIterator<T>
 
         super.next();
 
-        this._pushNextIndex();
         const temp: T = this._elements[this._nextIndex];
+        this._pushNextIndex();
 
         return temp;
     }
