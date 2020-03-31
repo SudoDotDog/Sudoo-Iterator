@@ -15,6 +15,9 @@ export class SeesawInfinityIterator<T extends any = any> extends BaseIterator<T>
     }
 
     private _nextIndex: number;
+    // True if left -> right
+    // False if right -> left
+    private _direction: boolean;
 
     private readonly _elements: T[];
 
@@ -25,6 +28,7 @@ export class SeesawInfinityIterator<T extends any = any> extends BaseIterator<T>
         this._nextIndex = 0;
 
         this._elements = elements;
+        this._direction = true;
     }
 
     public get length(): number {
@@ -48,14 +52,9 @@ export class SeesawInfinityIterator<T extends any = any> extends BaseIterator<T>
 
         super.next();
 
+        this._pushNextIndex();
         const temp: T = this._elements[this._nextIndex];
 
-        const peekNext: number = this._nextIndex + 1;
-        if (peekNext >= this._elements.length) {
-            this._nextIndex = 0;
-        } else {
-            this._nextIndex = peekNext;
-        }
         return temp;
     }
 
@@ -69,6 +68,7 @@ export class SeesawInfinityIterator<T extends any = any> extends BaseIterator<T>
         super.reset();
 
         this._nextIndex = 0;
+        this._direction = true;
         return this;
     }
 
@@ -77,6 +77,30 @@ export class SeesawInfinityIterator<T extends any = any> extends BaseIterator<T>
         while (this.hasNext()) {
             yield this.peek();
             this.next();
+        }
+    }
+
+    private _pushNextIndex(): void {
+
+        if (this._direction) {
+            const peekNext: number = this._nextIndex + 1;
+
+            if (peekNext >= this._elements.length) {
+                this._nextIndex = this._nextIndex - 1;
+                this._direction = false;
+            } else {
+                this._nextIndex = peekNext;
+            }
+        } else {
+
+            const peekNext: number = this._nextIndex - 1;
+
+            if (peekNext < 0) {
+                this._nextIndex = this._nextIndex + 1;
+                this._direction = true;
+            } else {
+                this._nextIndex = peekNext;
+            }
         }
     }
 }
