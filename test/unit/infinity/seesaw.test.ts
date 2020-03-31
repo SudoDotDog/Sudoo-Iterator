@@ -1,23 +1,23 @@
 /**
  * @author WMXPY
  * @namespace Infinity
- * @description Loop
+ * @description Seesaw
  * @override Unit Test
  */
 
 import { expect } from "chai";
 import * as Chance from "chance";
-import { LoopInfinityIterator } from "../../../src";
+import { SeesawInfinityIterator } from "../../../src";
 
-describe('Given {LoopInfinityIterator} class', (): void => {
+describe('Given {SeesawInfinityIterator} class', (): void => {
 
-    const chance: Chance.Chance = new Chance('iterator-infinity-loop');
+    const chance: Chance.Chance = new Chance('iterator-infinity-seesaw');
 
     it('should be able to construct', (): void => {
 
-        const iterator: LoopInfinityIterator = LoopInfinityIterator.create([]);
+        const iterator: SeesawInfinityIterator = SeesawInfinityIterator.create([]);
 
-        expect(iterator).to.be.instanceOf(LoopInfinityIterator);
+        expect(iterator).to.be.instanceOf(SeesawInfinityIterator);
     });
 
     it('should be able to get elements', (): void => {
@@ -27,7 +27,7 @@ describe('Given {LoopInfinityIterator} class', (): void => {
             chance.natural(),
             chance.natural(),
         ];
-        const iterator: LoopInfinityIterator = LoopInfinityIterator.create(elements);
+        const iterator: SeesawInfinityIterator = SeesawInfinityIterator.create(elements);
 
         expect(iterator.peek()).to.be.equal(elements[0]);
         const query: number[] = [
@@ -49,7 +49,7 @@ describe('Given {LoopInfinityIterator} class', (): void => {
             chance.natural(),
             chance.natural(),
         ];
-        const iterator: LoopInfinityIterator = LoopInfinityIterator.create(elements);
+        const iterator: SeesawInfinityIterator = SeesawInfinityIterator.create(elements);
 
         expect(iterator.peek()).to.be.equal(elements[0]);
         const query: number[] = [
