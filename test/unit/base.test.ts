@@ -12,6 +12,7 @@ import { createDebugBaseIterator } from "../mock/base";
 
 describe('Given {BaseIterator} class', (): void => {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const chance: Chance.Chance = new Chance('iterator-base');
 
     it('should be able to construct', (): void => {
@@ -29,7 +30,7 @@ describe('Given {BaseIterator} class', (): void => {
         expect(iterator.count).to.be.equal(0);
         expect(iterator.nextLeft).to.be.equal(0);
         expect(iterator.peek()).to.be.equal(undefined);
-        // tslint:disable-next-line: no-unused-expression
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
     });
 
@@ -39,13 +40,14 @@ describe('Given {BaseIterator} class', (): void => {
 
         let mapped: boolean = false;
         const exec = (): void => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             for (const _ of iterator) {
                 mapped = true;
             }
         };
 
         expect(exec).to.be.throw("Method not implemented.");
-        // tslint:disable-next-line: no-unused-expression
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(mapped).to.be.false;
     });
 });

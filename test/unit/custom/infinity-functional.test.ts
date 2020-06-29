@@ -15,7 +15,7 @@ describe('Given {InfinityFunctionalIterator} class', (): void => {
 
     it('should be able to construct', (): void => {
 
-        const iterator: InfinityFunctionalIterator<number> = InfinityFunctionalIterator.create((index: number) => chance.natural());
+        const iterator: InfinityFunctionalIterator<number> = InfinityFunctionalIterator.create(() => chance.natural());
 
         expect(iterator).to.be.instanceOf(InfinityFunctionalIterator);
     });
@@ -31,7 +31,7 @@ describe('Given {InfinityFunctionalIterator} class', (): void => {
         ];
 
         expect(iterator).to.be.lengthOf(Infinity);
-        // tslint:disable-next-line: no-unused-expression
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.true;
         expect(iterator.count).to.be.equal(2);
         expect(iterator.nextLeft).to.be.equal(Infinity);

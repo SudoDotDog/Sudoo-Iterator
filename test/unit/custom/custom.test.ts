@@ -23,13 +23,8 @@ describe('Given {CustomIterator} class', (): void => {
         ];
         const iterator: CustomIterator<number> = CustomIterator.create(elements);
 
-        const query: number[] = [
-            iterator.next(),
-            iterator.next(),
-        ];
-
         expect(iterator).to.be.lengthOf(4);
-        // tslint:disable-next-line: no-unused-expression
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.true;
         expect(iterator.count).to.be.equal(2);
         expect(iterator.nextLeft).to.be.equal(2);
@@ -46,7 +41,7 @@ describe('Given {CustomIterator} class', (): void => {
         ];
 
         expect(query).to.be.deep.equal(elements);
-        // tslint:disable-next-line: no-unused-expression
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
         expect(iterator.count).to.be.equal(2);
         expect(iterator.nextLeft).to.be.equal(0);
@@ -126,7 +121,7 @@ describe('Given {CustomIterator} class', (): void => {
         expect(query).to.be.deep.equal(elements);
         expect(iterator.count).to.be.equal(4);
         expect(iterator.nextLeft).to.be.equal(0);
-        // tslint:disable-next-line: no-unused-expression
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
     });
 });

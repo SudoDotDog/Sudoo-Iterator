@@ -8,7 +8,7 @@ import { IIterator } from "./declare";
 
 export class BaseIterator<T> implements IIterator<T> {
 
-    protected static __createForDebug() {
+    protected static __createForDebug<T>(): BaseIterator<T> {
 
         return new BaseIterator();
     }
