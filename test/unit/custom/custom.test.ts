@@ -26,8 +26,8 @@ describe('Given {CustomIterator} class', (): void => {
         expect(iterator).to.be.lengthOf(4);
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.true;
-        expect(iterator.count).to.be.equal(2);
-        expect(iterator.nextLeft).to.be.equal(2);
+        expect(iterator.count).to.be.equal(0);
+        expect(iterator.nextLeft).to.be.equal(4);
     });
 
     it('should be able to get simple', (): void => {
