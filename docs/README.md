@@ -6,3 +6,11 @@
 [![downloads](https://img.shields.io/npm/dm/@sudoo/iterator.svg)](https://www.npmjs.com/package/@sudoo/iterator)
 
 :musical_score: Iterator of stuffs
+
+## Install
+
+```sh
+yarn add @sudoo/iterator
+# Or
+npm install @sudoo/iterator --save
+```
