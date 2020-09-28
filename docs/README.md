@@ -17,5 +17,7 @@ npm install @sudoo/iterator --save
 
 ## Modules
 
+> This section is currently work in progress. Contact [hello@sudo.dog](mailto:hello@sudo.dog) for support.
+
 -   Numeric
     -   [Fibonacci](./number/fibonacci.md)
