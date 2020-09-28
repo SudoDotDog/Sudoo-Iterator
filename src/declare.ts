@@ -8,7 +8,7 @@ export interface IIterator<T> extends Iterable<T> {
 
     count: number;
     length: number;
-    nextLeft: number;
+    remain: number;
 
     peek(): T;
     hasNext(): boolean;

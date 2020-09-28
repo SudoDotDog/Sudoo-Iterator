@@ -26,7 +26,7 @@ export class BaseIterator<T> implements IIterator<T> {
     public get length(): number {
         return 0;
     }
-    public get nextLeft(): number {
+    public get remain(): number {
         return 0;
     }
 
