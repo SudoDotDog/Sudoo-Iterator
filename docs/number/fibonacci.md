@@ -6,7 +6,7 @@ Fibonacci iterator provide an iteratable instance that generate a fibonacci sequ
 
 See [Wikipedia - Fibonacci number](https://wikipedia.org/wiki/Fibonacci_number).
 
-## Usage with loop
+## Loop Usage
 
 Note: this iterator is an infinity iterator, add a break point, or it will go infinity loop.
 
