@@ -15,6 +15,19 @@ yarn add @sudoo/iterator
 npm install @sudoo/iterator --save
 ```
 
+## Usage
+
+All class exported from this package implements the `Iterable` interface. So you can use it as a iterable object.
+
+Use case: with loop
+
+```ts
+const iterable = [...] // Iterable instance
+for(const each of iterable) {
+    // Do Something
+}
+```
+
 ## Modules
 
 > This section is currently work in progress.
