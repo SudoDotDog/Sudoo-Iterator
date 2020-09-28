@@ -16,3 +16,6 @@ npm install @sudoo/iterator --save
 ```
 
 ## Modules
+
+-   Numeric
+    -   [Fibonacci](./number/fibonacci.md)
