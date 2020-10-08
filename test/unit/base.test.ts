@@ -28,7 +28,7 @@ describe('Given {BaseIterator} class', (): void => {
 
         expect(iterator).to.be.lengthOf(0);
         expect(iterator.count).to.be.equal(0);
-        expect(iterator.nextLeft).to.be.equal(0);
+        expect(iterator.remain).to.be.equal(0);
         expect(iterator.peek()).to.be.equal(undefined);
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
