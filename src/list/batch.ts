@@ -7,11 +7,11 @@
 import { BaseIterator } from "../base";
 import { IIterator } from "../declare";
 
-export class BatchIterator<T> extends BaseIterator<T[]> implements IIterator<T[]> {
+export class ListBatchIterator<T> extends BaseIterator<T[]> implements IIterator<T[]> {
 
-    public static create<T extends any>(elements: T[], batchSize: number): BatchIterator<T> {
+    public static create<T extends any>(elements: T[], batchSize: number): ListBatchIterator<T> {
 
-        return new BatchIterator(elements, batchSize);
+        return new ListBatchIterator(elements, batchSize);
     }
 
     private _pointer: number;

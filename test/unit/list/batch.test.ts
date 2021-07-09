@@ -7,9 +7,9 @@
 
 import { expect } from "chai";
 import * as Chance from "chance";
-import { BatchIterator } from "../../../src";
+import { ListBatchIterator } from "../../../src";
 
-describe('Given {BatchIterator} class', (): void => {
+describe('Given {ListBatchIterator} class', (): void => {
 
     const chance: Chance.Chance = new Chance('iterator-list-batch');
 
@@ -21,7 +21,7 @@ describe('Given {BatchIterator} class', (): void => {
             chance.natural(),
             chance.natural(),
         ];
-        const iterator: BatchIterator<number> = BatchIterator.create(elements, 2);
+        const iterator: ListBatchIterator<number> = ListBatchIterator.create(elements, 2);
 
         expect(iterator).to.be.lengthOf(2);
         expect(iterator.hasNext()).to.be.true;
@@ -37,7 +37,7 @@ describe('Given {BatchIterator} class', (): void => {
             chance.natural(),
             chance.natural(),
         ];
-        const iterator: BatchIterator<number> = BatchIterator.create(elements, 3);
+        const iterator: ListBatchIterator<number> = ListBatchIterator.create(elements, 3);
 
         expect(iterator).to.be.lengthOf(2);
         expect(iterator.hasNext()).to.be.true;
@@ -53,7 +53,7 @@ describe('Given {BatchIterator} class', (): void => {
             chance.natural(),
             chance.natural(),
         ];
-        const iterator: BatchIterator<number> = BatchIterator.create(elements, 3);
+        const iterator: ListBatchIterator<number> = ListBatchIterator.create(elements, 3);
 
         const batches: number[][] = [];
         for (const batch of iterator) {
