@@ -50,6 +50,10 @@ export class RangeIterator extends BaseIterator<number> implements IIterator<num
 
     public next(): number {
 
+        if (!this.hasNext()) {
+            return undefined as any;
+        }
+
         super.next();
 
         const temp: number = this._next;
