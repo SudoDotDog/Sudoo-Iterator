@@ -33,7 +33,7 @@ export class BatchIterator<T> extends BaseIterator<T[]> implements IIterator<T[]
         return Math.ceil(this._elements.length / this._batchSize);
     }
     public get nextLeft(): number {
-        return Math.ceil(this._elements.length - this._pointer / this._batchSize);
+        return Math.ceil((this._elements.length - this._pointer) / this._batchSize);
     }
 
     public peek(): T[] {
