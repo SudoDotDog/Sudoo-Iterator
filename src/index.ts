@@ -13,6 +13,7 @@ export * from "./infinity/seesaw";
 export * from "./list/batch";
 export * from "./number/fibonacci";
 export * from "./number/limit-skip";
+export * from "./number/range";
 export * from "./number/step";
 export * from "./random/rest-random";
 
