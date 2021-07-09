@@ -40,4 +40,16 @@ describe('Given {RangeIterator} class', (): void => {
 
         expect(query).to.be.deep.equal([1, 2, 3, 4, 5, undefined]);
     });
+
+    it('should be able to iterate list', (): void => {
+
+        const iterator: RangeIterator = RangeIterator.create(1, 5);
+
+        const result: number[] = [];
+        for (const item of iterator) {
+            result.push(item);
+        }
+
+        expect(result).to.be.deep.equal([1, 2, 3, 4, 5]);
+    });
 });
