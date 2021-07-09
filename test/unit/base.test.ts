@@ -30,7 +30,6 @@ describe('Given {BaseIterator} class', (): void => {
         expect(iterator.count).to.be.equal(0);
         expect(iterator.remain).to.be.equal(0);
         expect(iterator.peek()).to.be.equal(undefined);
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
     });
 
@@ -47,7 +46,6 @@ describe('Given {BaseIterator} class', (): void => {
         };
 
         expect(exec).to.be.throw("Method not implemented.");
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(mapped).to.be.false;
     });
 });

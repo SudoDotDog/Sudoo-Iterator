@@ -64,13 +64,11 @@ describe('Given {LimitSkipIterator} class', (): void => {
         iterator.next();
 
         expect(iterator.count).to.be.equal(2);
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
 
         iterator.reset();
 
         expect(iterator.count).to.be.equal(0);
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.true;
     });
 

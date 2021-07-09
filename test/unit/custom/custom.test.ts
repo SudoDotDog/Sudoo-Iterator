@@ -24,7 +24,6 @@ describe('Given {CustomIterator} class', (): void => {
         const iterator: CustomIterator<number> = CustomIterator.create(elements);
 
         expect(iterator).to.be.lengthOf(4);
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.true;
         expect(iterator.count).to.be.equal(0);
         expect(iterator.nextLeft).to.be.equal(4);
@@ -41,7 +40,6 @@ describe('Given {CustomIterator} class', (): void => {
         ];
 
         expect(query).to.be.deep.equal(elements);
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
         expect(iterator.count).to.be.equal(2);
         expect(iterator.nextLeft).to.be.equal(0);
@@ -121,7 +119,6 @@ describe('Given {CustomIterator} class', (): void => {
         expect(query).to.be.deep.equal(elements);
         expect(iterator.count).to.be.equal(4);
         expect(iterator.nextLeft).to.be.equal(0);
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
     });
 });

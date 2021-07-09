@@ -31,7 +31,6 @@ describe('Given {InfinityFunctionalIterator} class', (): void => {
         ];
 
         expect(iterator).to.be.lengthOf(Infinity);
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.true;
         expect(iterator.count).to.be.equal(2);
         expect(iterator.nextLeft).to.be.equal(Infinity);

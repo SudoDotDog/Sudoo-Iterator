@@ -141,7 +141,6 @@ describe('Given {RestRandomIterator} class', (): void => {
         expect(sum.toFixed(8)).to.be.equal((10).toFixed(8));
         expect(iterator.count).to.be.equal(5);
         expect(iterator.nextLeft).to.be.equal(0);
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
 
         const restEmpty: number = iterator.next();
@@ -166,7 +165,6 @@ describe('Given {RestRandomIterator} class', (): void => {
         expect(query).to.be.lengthOf(3);
         expect(iterator.count).to.be.equal(3);
         expect(iterator.nextLeft).to.be.equal(0);
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         expect(iterator.hasNext()).to.be.false;
     });
 });
